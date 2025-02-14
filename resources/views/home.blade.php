@@ -86,26 +86,6 @@
     
     {{-- end event --}}
     
-    {{-- event--}}
-    {{-- <section class="event">
-        <div class="container">
-            <div class="pilih-paket text-center my-5">
-                <h1 class="text-center mb-4" style="color:#500009">Kabar Informatika</h1>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="/assets/images/Cover.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Seminar Nasional Informatika</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut debitis perferendis dolores libero? Molestias harum enim sunt officia soluta dolores quis, nesciunt, sint itaque eum temporibus modi distinctio vitae? Quasi.</p>
-                </div>
-                <div class="card-body">
-                  <a href="#" class="card-link">Selengkapnya</a>
-                </div>
-              </div>
-        </div>
-    </section> --}}
-    {{-- End Event --}}
-
     {{-- Aspirasi --}}
     <section class="aspirasi">
         <div class="">
@@ -121,30 +101,31 @@
                                 
                                 <p class="text-center mb-4">Tuliskan saran dan kritik untuk perkuliahan dan keinginanmu untuk Informatika</p>
                                 
-                                <form>
+                                <form action="{{ route('aspirasi.store') }}" method="POST">
+                                    @csrf
                                     <div class="row mb-3">
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="angkatan" class="form-label">Angkatan</label>
-                                                <input type="text" class="form-control" id="angkatan" required>
+                                                <input type="text" class="form-control" id="angkatan" name="angkatan" placeholder="Angkatan" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="kelas" class="form-label">Kelas</label>
-                                                <input type="text" class="form-control" id="kelas" required>
+                                                <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Kelas" required>
                                             </div>
                                         </div>
                                     </div>
         
                                     <div class="mb-3">
                                         <label for="subjek" class="form-label">Subjek</label>
-                                        <input type="text" class="form-control" id="subjek" required>
+                                        <input type="text" class="form-control" id="subjek" name="subjek" placeholder="Subjek" required>
                                     </div>
         
                                     <div class="mb-4">
                                         <label for="pesan" class="form-label">Pesan/Aspirasi</label>
-                                        <textarea class="form-control" id="pesan" rows="5" required></textarea>
+                                        <textarea class="form-control" id="pesan" name="pesan" rows="5" placeholder="Pesan/Aspirasi" required></textarea>
                                     </div>
         
                                     <div class="text-center">
@@ -158,6 +139,7 @@
             </div>
         </div>
     </section>
+    
     {{-- End Aspirasi --}}
 
     {{-- footer --}}

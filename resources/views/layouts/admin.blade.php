@@ -60,6 +60,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route ('admin.events.index') }}">Events</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route ('admin.aspirasi.index') }}">Aspirasi</a>
+                                </li>
                             </ul>
                         </div>
 

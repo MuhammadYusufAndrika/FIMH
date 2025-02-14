@@ -2,12 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Aspirasi;
+use Illuminate\Http\Request;
+use Spatie\SimpleExcel\SimpleExcelWriter;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use Illuminate\Routing\Controller;
+use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+
 
 class AspirasiController extends Controller
 {
+    public function index()
+    {
+        $aspirasi = Aspirasi::latest()->get();
+        return view('admin.aspirasi.index', compact('aspirasi'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -19,5 +30,32 @@ class AspirasiController extends Controller
 
         Aspirasi::create($request->all());
         return redirect()->back()->with('success', 'Aspirasi berhasil dikirim');
+    }
+
+    // ✅ Fungsi Export CSV
+    public function export(): BinaryFileResponse
+    {
+        $fileName = 'aspirasi-' . now()->format('YmdHis') . '.csv';
+        $filePath = storage_path('app/' . $fileName);
+
+        // Buat file CSV
+        $writer = SimpleExcelWriter::create($filePath)
+            ->addHeader(['ID', 'Angkatan', 'Kelas', 'Subjek', 'Pesan', 'Tanggal']);
+
+        Aspirasi::all()->each(function ($aspirasi) use ($writer) {
+            $writer->addRow([
+                $aspirasi->id,
+                $aspirasi->angkatan,
+                $aspirasi->kelas,
+                $aspirasi->subjek,
+                $aspirasi->pesan,
+                $aspirasi->created_at->format('d-m-Y H:i'),
+            ]);
+        });
+
+        $writer->close();
+
+        // Return sebagai BinaryFileResponse
+        return response()->download($filePath)->deleteFileAfterSend(true);
     }
 }
