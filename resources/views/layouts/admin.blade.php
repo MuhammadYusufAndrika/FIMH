@@ -66,6 +66,29 @@
                             </ul>
                         </div>
 
+                        <div class="border-bottom pb-2 mb-3">
+                            <h5 class="mb-3">Kepengurusan</h5>
+                            <ul class="nav flex-column">
+                                {{-- Dashboard (Di-nonaktifkan) --}}
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                </li> --}}
+                        
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.kepengurusan.index') }}">Kepengurusan</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.visimisi.index') }}">Visi Misi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route ('admin.events.index') }}">Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route ('admin.aspirasi.index') }}">Aspirasi</a>
+                                </li>
+                            </ul>
+                        </div>
+
                         {{-- <li class="nav-item">
                             <h5>Layanan</h5>
                             <a class="nav-link" href="{{ route('admin.layanancctv.index') }}">

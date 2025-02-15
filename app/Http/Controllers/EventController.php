@@ -80,34 +80,40 @@ class EventController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Jika ada gambar baru, hapus gambar lama
+        // Jika ada gambar baru, hapus gambar lama terlebih dahulu
         if ($request->hasFile('image')) {
-            if ($event->image && Storage::exists('public/' . $event->image)) {
-                Storage::delete('public/' . $event->image);
+            // Hapus file lama jika ada
+            if ($event->image) {
+                $oldImagePath = storage_path('app/public/' . $event->image);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
             }
 
-            // Simpan gambar baru
-            $path = $request->file('image')->store('public/events');
-            $validated['image'] = str_replace('public/', '', $path);
+            // Simpan gambar baru langsung ke 'public/events'
+            $validated['image'] = $request->file('image')->store('events', 'public');
         }
 
         $event->update($validated);
 
-        return redirect()->route('admin.events.index')->with('success', 'Event berhasil diperbarui');
+        return redirect()->route('admin.events.index')->with('success', 'Event berhasil diperbarui!');
     }
-
 
     public function destroy($id)
     {
         $event = Events::findOrFail($id);
 
         // Hapus file gambar jika ada
-        if ($event->image && Storage::exists('public/' . $event->image)) {
-            Storage::delete('public/' . $event->image);
+        if ($event->image) {
+            $imagePath = storage_path('app/public/' . $event->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
         }
 
+        // Hapus data event dari database
         $event->delete();
 
-        return redirect()->route('admin.events.index')->with('success', 'Event berhasil dihapus');
+        return redirect()->route('admin.events.index')->with('success', 'Event berhasil dihapus!');
     }
 }

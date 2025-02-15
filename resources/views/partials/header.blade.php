@@ -48,10 +48,10 @@
                             <a class="nav-link active text-white" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white " href="#">Kepengurusan</a>
+                            <a class="nav-link text-white " href="{{ route('kepengurusan') }}">Kepengurusan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Bank Soal</a>
+                            <a class="nav-link text-white" href="{{ route('banksoal') }}">Bank Soal</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">Artikel</a>
