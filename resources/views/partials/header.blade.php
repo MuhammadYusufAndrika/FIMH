@@ -54,7 +54,7 @@
                             <a class="nav-link text-white" href="{{ route('banksoal') }}">Bank Soal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Artikel</a>
+                            <a class="nav-link text-white" href="{{ route('beritaacara') }}">Berita Acara</a>
                         </li>
                     </ul>
                 </div>
