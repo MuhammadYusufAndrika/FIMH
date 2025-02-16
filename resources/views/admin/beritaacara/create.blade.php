@@ -6,10 +6,10 @@
     <form action="{{ route('admin.beritaacara.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label>Judul:</label>
-        <input type="text" name="title" class="form-control" required>
+        <input type="text" name="title" class="form-control summernote" required>
 
         <label>content:</label>
-        <textarea name="content" class="form-control" required></textarea>
+        <textarea name="content" class="form-control summernote" required></textarea>
 
         <label>Gambar:</label>
         <input type="file" name="image" class="form-control">

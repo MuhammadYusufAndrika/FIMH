@@ -20,7 +20,7 @@
                         <h2 class="fw-bold" style="color: #500009">Universitas Amikom</h2>
                         <h2 class="fw-bold" style="color: #500009">Yogyakarta</h2>
                         <p style="text-align: justify;">
-                            {{ $tentangkami->content ?? 'Deskripsi belum tersedia.' }}
+                            {!! $tentangkami->content ?? 'Deskripsi belum tersedia.' !!}
                         </p>
                         <a href="https://www.youtube.com/@hmifamikomyogyakarta7239"><button type="button" style="background-color: #500009; color: white; border: none; padding: 10px 10px; border-radius: 10px;">Youtube</button></a>
                         
@@ -45,14 +45,14 @@
                 <h4 class="mb-3">VISI</h4>
                 <ul class="list-group" style="text-align: justify;">
                     @foreach($visi as $item)
-                        <li class="list-group-item">{{ $item }}</li>
+                        <li class="list-group-item">{!! $item !!}</li>
                     @endforeach
                 </ul>
             
                 <h4 class="mb-3">MISI</h4>
                 <ul class="list-group" style="text-align: justify;">
                     @foreach($misi as $item)
-                        <li class="list-group-item">{{ $item }}</li>
+                        <li class="list-group-item">{!! $item !!}</li>
                     @endforeach
                 </ul>
             </div>
@@ -73,8 +73,8 @@
                         <div class="card">
                             <img src="{{ asset('storage/' . $event->image) }}" class="card-img-top" alt="{{ $event->title }}">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $event->title }}</h5>
-                                <p class="card-text">{{ Str::limit($event->content, 300) }}</p>
+                                <h5 class="card-title">{!! $event->title !!}</h5>
+                                <p class="card-text">{!! Str::limit($event->content, 300) !!}</p>
                                 <a href="{{ route('events.show', $event->id) }}" class="btn btn-primary">Selengkapnya</a>
                             </div>
                         </div>

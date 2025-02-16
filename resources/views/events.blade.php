@@ -18,7 +18,7 @@
                 <div class="col-lg-8 col-md-10 text-center">
                     <h2 class="fw-bold mt-5">{{ $event->title }}</h2>
                     <img src="{{ asset('storage/' . $event->image) }}" class="img-fluid mt-3 mb-4" style="max-width: 100%; height: auto;" alt="Seminar Nasional Informatika">
-                    <p style="text-align: justify;">{{ $event->content }}</p>
+                    <p style="text-align: justify;">{!! $event->content !!}</p>
                 </div>
             </div>
         </div>

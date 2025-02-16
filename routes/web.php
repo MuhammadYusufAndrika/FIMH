@@ -41,19 +41,27 @@ Route::get('/beritaacara/{id}', [BeritaacaraController::class, 'show'])->name('b
 
 Route::post('/aspirasi', [AspirasiController::class, 'store'])->name('aspirasi.store');
 Route::post('/admin/aspirasi/store', [AspirasiController::class, 'store'])->name('admin.aspirasi.store');
-Route::get('/admin/aspirasi/export', [AspirasiController::class, 'export'])->name('admin.aspirasi.export');
-Route::get('/export-aspirasi', [AspirasiExportController::class, 'export'])->name('aspirasi.export');
+// Route::get('/admin/aspirasi/export', [AspirasiController::class, 'export'])->name('admin.aspirasi.export');
+// Route::get('/export-aspirasi', [AspirasiExportController::class, 'export'])->name('aspirasi.export');
 Route::post('/aspirasi/store', [AspirasiController::class, 'store'])->name('aspirasi.store');
+// Route::post('/admin/aspirasi/deleteSelected', [AspirasiController::class, 'deleteSelected'])->name('admin.aspirasi.deleteSelected');
+//  Route::post('/admin/aspirasi/clearAll', [AspirasiController::class, 'clearAll'])->name('admin.aspirasi.clearAll');
 
+
+// Routes untuk admin tanpa middleware auth
 // Routes untuk admin tanpa middleware auth
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('tentangkami', TentangkamiController::class);
     Route::resource('visimisi', \App\Http\Controllers\VisimisiController::class);
     Route::resource('events', \App\Http\Controllers\EventController::class);
     Route::resource('kepengurusan', \App\Http\Controllers\KepengurusanController::class);
-    Route::resource('/admin/aspirasi', \App\Http\Controllers\AspirasiController::class);
+
+    Route::post('aspirasi/deleteSelected', [AspirasiController::class, 'deleteSelected'])->name('aspirasi.deleteSelected');
+    Route::post('aspirasi/clearAll', [AspirasiController::class, 'clearAll'])->name('aspirasi.clearAll');
+    Route::get('aspirasi/export', [AspirasiController::class, 'export'])->name('aspirasi.export');
+    Route::resource('aspirasi', \App\Http\Controllers\AspirasiController::class);
+    
     Route::resource('beritaacara', \App\Http\Controllers\BeritaacaraController::class);
-    // Route::post('/aspirasi/store', [AspirasiController::class, 'store'])->name('aspirasi.store');
-    // Route::get('/export-aspirasi', [AspirasiExportController::class, 'export'])->name('aspirasi.export');
 });
+
 

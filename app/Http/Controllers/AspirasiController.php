@@ -58,4 +58,20 @@ class AspirasiController extends Controller
         // Return sebagai BinaryFileResponse
         return response()->download($filePath)->deleteFileAfterSend(true);
     }
+
+    public function deleteSelected(Request $request)
+    {
+        $ids = $request->input('ids');
+        if ($ids) {
+            Aspirasi::whereIn('id', $ids)->delete();
+            return redirect()->route('admin.aspirasi.index')->with('success', 'Data aspirasi terpilih berhasil dihapus.');
+        }
+        return redirect()->route('admin.aspirasi.index')->with('warning', 'Tidak ada data yang dipilih untuk dihapus.');
+    }
+    // ✅ Fungsi untuk menghapus semua data aspirasi
+    public function clearAll()
+    {
+        Aspirasi::truncate();
+        return redirect()->route('admin.aspirasi.index')->with('success', 'Semua data aspirasi berhasil dihapus.');
+    }
 }

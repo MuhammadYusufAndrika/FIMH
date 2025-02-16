@@ -17,7 +17,7 @@
             @foreach($tentangkami as $tentangkami)
             <tr>
                 <td>{{ $tentangkami->id }}</td>
-                <td>{{ $tentangkami->content }}</td>
+                <td>{!!$tentangkami->content !!}</td>
                 <td class="d-flex gap-1">
                     <a href="{{ route('admin.tentangkami.edit', $tentangkami) }}" class="btn btn-warning me-2">Edit</a>
                     <form action="{{ route('admin.tentangkami.destroy', $tentangkami) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this item?');">

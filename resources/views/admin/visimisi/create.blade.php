@@ -7,11 +7,11 @@
         @csrf
         <div class="mb-3">
             <label for="visi" class="form-label">Visi</label>
-            <input type="text" class="form-control" id="visi" name="visi" required>
+            <input type="text" class="form-control summernote" id="visi" name="visi" required>
         </div>
         <div class="mb-3">
             <label for="misi" class="form-label">Misi</label>
-            <textarea class="form-control" id="misi" name="misi" rows="5" required></textarea>
+            <textarea class="form-control summernote" id="misi" name="misi" rows="5" required></textarea>
         </div>
         <button type="submit" class="btn btn-success">Add Visi Misi</button>
     </form>

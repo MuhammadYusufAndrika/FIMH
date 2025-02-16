@@ -48,6 +48,12 @@
                             Export to Excel
                         </button>
                     </form>
+                    <form action="{{ route('admin.aspirasi.clearAll') }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-success px-4">
+                            Hapus data aspirasi
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

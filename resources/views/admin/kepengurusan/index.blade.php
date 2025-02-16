@@ -17,11 +17,11 @@
             @foreach ($kepengurusans as $kepengurusan)
                 <tr>
                     <td>{{ $kepengurusan->id }}</td>
-                    <td>{{ $kepengurusan->title }}</td>
-                    <td>{{ $kepengurusan->content }}</td>
+                    <td>{!! $kepengurusan->title !!}</td>
+                    <td>{!! $kepengurusan->content!!}</td>
                     <td><img src="{{ asset('storage/' . $kepengurusan->image) }}" alt="Event Image" width="100"></td>
                     <td>
-                        <a href="{{ route('admin.kepengurusan.edit', $kepengurusan->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('admin.kepengurusan.edit', $kepengurusan->id) }}" class="btn btn-warning mb-2">Edit</a>
                         <form action="{{ route('admin.kepengurusan.destroy', $kepengurusan->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')

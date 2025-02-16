@@ -17,8 +17,8 @@
             @foreach ($events as $event)
                 <tr>
                     <td>{{ $event->id }}</td>
-                    <td>{{ $event->title }}</td>
-                    <td>{{ $event->content }}</td>
+                    <td>{!! $event->title !!}</td>
+                    <td>{!! $event->content !!}</td>
                     <td><img src="{{ asset('storage/' . $event->image) }}" alt="Event Image" width="100"></td>
                     <td>
                         <a href="{{ route('admin.events.edit', $event->id) }}" class="btn btn-warning">Edit</a>

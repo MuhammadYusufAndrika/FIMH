@@ -17,8 +17,8 @@
             @foreach ($beritaacaras as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
-                    <td>{{ $item->title }}</td>
-                    <td>{{ $item->content }}</td>
+                    <td>{!! $item->title !!}</td>
+                    <td>{!! $item->content !!}</td>
                     <td><img src="{{ asset('storage/' . $item->image) }}" alt="Berita Acara Image" width="100"></td>
                     <td>
                         <a href="{{ route('admin.beritaacara.edit', $item->id) }}" class="btn btn-warning">Edit</a>

@@ -8,10 +8,11 @@
         @method('PUT')
 
         <label>Title:</label>
-        <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
+        <input type="text" name="title" class="form-control summernote" value="{{ $event->title }}" required>
 
         <label>Content:</label>
-        <textarea name="content" class="form-control" required>{{ $event->content }}</textarea>
+        <textarea class="form-controlsummernote" name="content">{{ old('content', $event->content ?? '') }}</textarea>
+
         
         <label>Gambar:</label>
         <input type="file" name="image" class="form-control">
@@ -26,3 +27,5 @@
     </form>
 </div>
 @endsection
+
+

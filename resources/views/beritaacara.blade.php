@@ -29,7 +29,7 @@
             <div class="col-lg-8">
                 <div class="card shadow-sm mb-4" onclick="window.location.href='{{ route('beritaacara.show', $berita->id) }}'" style="cursor: pointer;">
                     <div class="card-body">
-                        <h3 class="card-title">{{ $berita->title }}</h3>
+                        <h3 class="card-title">{!! $berita->title !!}</h3>
                         <div class="d-flex align-items-center text-muted mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3 me-2" viewBox="0 0 16 16">
                                 <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
@@ -39,7 +39,7 @@
                         </div>
                         <img src="{{ asset('storage/' . $berita->image) }}" class="img-fluid rounded mb-3" alt="{{ $berita->title }}">
                         <div class="content">
-                            <p class="">{{ $berita->content }}</p>
+                            <p class="">{!! $berita->content !!}</p>
                             <p>{{ Str::limit($berita->konten, 300) }}</p>
                         </div>
                     </div>

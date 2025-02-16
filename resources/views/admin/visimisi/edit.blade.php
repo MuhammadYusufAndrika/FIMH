@@ -8,11 +8,11 @@
         @method('PUT')
         <div class="mb-3">
             <label for="visi" class="form-label">Visi</label>
-            <textarea class="form-control" id="visi" name="visi" rows="5" required>{{ $visimisi->visi }}</textarea>
+            <textarea class="form-contro summernote" id="visi" name="visi" rows="5" required>{!! $visimisi->visi !!}</textarea>
         </div>
         <div class="mb-3">
             <label for="misi" class="form-label">Misi</label>
-            <textarea class="form-control" id="misi" name="misi" rows="5" required>{{ $visimisi->misi }}</textarea>
+            <textarea class="form-control summernote" id="misi" name="misi" rows="5" required>{!! $visimisi->misi !!}</textarea>
         </div>
         <button type="submit" class="btn btn-success">Update Visi Misi</button>
     </form>

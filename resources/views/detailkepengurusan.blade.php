@@ -14,7 +14,7 @@
     <!-- Header -->
     <section>
         <div class="container py-5 text-center mt-5">
-            <h1 class="fw-bold">{{ $kepengurusan->title }}</h1>
+            <h1 class="fw-bold">{!! $kepengurusan->title !!}</h1>
         </div>
     </section>
 <!-- Content -->
@@ -31,8 +31,8 @@
             </div>
             <!-- Deskripsi -->
             <div class="col-md-6">
-                <h3 class="mb-3">{{ $kepengurusan->title }}</h3>
-                <p class="text-muted">{{ $kepengurusan->content }}</p>
+                <h3 class="mb-3">{!! $kepengurusan->title !!}</h3>
+                <p class="text-muted">{!! $kepengurusan->content !!}</p>
                 <a href="{{ route('kepengurusan') }}" class="btn btn-secondary mt-3">Kembali</a>
             </div>
         </div>

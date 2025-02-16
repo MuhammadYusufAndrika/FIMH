@@ -8,10 +8,10 @@
         @method('PUT')
 
         <label>Title:</label>
-        <input type="text" name="title" class="form-control" value="{{ $beritaacara->title }}" required>
+        <input type="text" name="title" class="form-control summernote" value="{{ $beritaacara->title }}" required>
 
         <label>Content:</label>
-        <textarea name="content" class="form-control" required>{{ $beritaacara->content }}</textarea>
+        <textarea name="content" class="form-control summernote" required>{{ $beritaacara->content }}</textarea>
         
         <label>Gambar:</label>
         <input type="file" name="image" class="form-control">

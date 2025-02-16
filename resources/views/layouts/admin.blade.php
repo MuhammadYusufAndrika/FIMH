@@ -2,26 +2,27 @@
 <html lang="en">
 
 <head>
-    {{-- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
-    <!-- Add other CSS libraries here --> --}}
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Summernote CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" rel="stylesheet">
+
+<!-- Summernote JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
+
+    <script src="https://unpkg.com/feather-icons"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <title>HMIF ADMIN</title>
-
-   
+    
 </head>
+
 
 <body>
     <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow text-white" style="background-color: #500009;" >
@@ -113,84 +114,27 @@
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                
-                {{-- <div class="row">
-                    <div class="col-md-4">
-
-                        <a href="{{ route('admin.carousels.index') }}">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header text-light">Total Carousels</div>
-                                <div class="card-body">
-                                 
-                                    <a href="{{ route('admin.carousels.index') }}">
-                                        <p class="card-text text-light">Manage all carousels from here.</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="">
-                            <div class="card text-white bg-success mb-3">
-                                <div class="card-header">Total Descriptions</div>
-                                <div class="card-body">
-                                   
-                                    <p class="card-text">Manage all descriptions from here.</p>
-                                </div>
-                            </div> 
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card text-white bg-warning mb-3">
-                            <div class="card-header">Total Services</div>
-                            <div class="card-body">
-                                
-                                <p class="card-text">Manage all services from here.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card mb-3">
-                            <div class="card-header">Latest Activity</div>
-                            <div class="card-body">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Action</th>
-                                            <th>Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Updated carousel</td>
-                                            <td>2024-06-23</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Added new service</td>
-                                            <td>2024-06-22</td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
                 @yield('content')
             </main>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+        $('.summernote').summernote({
+        height: 300,
+        placeholder: 'Tulis konten di sini...',
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+    });
+});
 
+    </script>
+    
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
