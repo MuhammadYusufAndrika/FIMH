@@ -62,7 +62,7 @@
             
 
             <!-- Login Icon -->
-            <a href="#" class="login text-white mx-3">
+            <a href="{{ route('login') }}" class="login text-white mx-3">
                 <i data-feather="user"></i>
             </a>
         </div>

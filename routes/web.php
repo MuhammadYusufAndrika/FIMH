@@ -49,8 +49,22 @@ Route::post('/aspirasi/store', [AspirasiController::class, 'store'])->name('aspi
 
 
 // Routes untuk admin tanpa middleware auth
+// Route::get('/login-admin', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('/login-admin', [LoginController::class, 'login']);
+// Route::post('/login', [LoginController::class, 'authenticate'])->name('login'); 
+// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Route untuk halaman login (GET)
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+// Route untuk proses login (POST)
+Route::post('/login', [LoginController::class, 'login']);
+
+// Route untuk logout (POST)
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 // Routes untuk admin tanpa middleware auth
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('tentangkami', TentangkamiController::class);
     Route::resource('visimisi', \App\Http\Controllers\VisimisiController::class);
     Route::resource('events', \App\Http\Controllers\EventController::class);

@@ -6,7 +6,7 @@
     <form action="{{ route('admin.events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label>Judul:</label>
-        <input type="text" name="title" class="form-control summernote" required>
+        <textarea name="title" class="form-control summernote" required></textarea>
 
         <label>content:</label>
         <textarea name="content" class="form-control summernote" required></textarea>

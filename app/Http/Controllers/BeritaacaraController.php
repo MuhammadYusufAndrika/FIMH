@@ -12,24 +12,24 @@ use App\Http\Controllers\Controller;
 class BeritaacaraController extends Controller
 {
     public function index()
-{
-    // Cek apakah request berasal dari admin URL
-    if (request()->is('admin/*')) {
-        // Halaman index untuk admin
-        $beritaacaras = Beritaacara::latest()->get()->map(function ($item) {
-            $item->short_content = Str::limit(strip_tags($item->content), 150);
-            return $item;
-        });
-        return view('admin.beritaacara.index', compact('beritaacaras'));
-    } else {
-        // Halaman index untuk publik
-        $beritaacaras = Beritaacara::latest()->get()->map(function ($item) {
-            $item->short_content = Str::limit(strip_tags($item->content), 150);
-            return $item;
-        });
-        return view('beritaacara', compact('beritaacaras'));
+    {
+        // Cek apakah request berasal dari admin URL
+        if (request()->is('admin/*')) {
+            // Halaman index untuk admin
+            $beritaacaras = Beritaacara::latest()->get()->map(function ($item) {
+                $item->short_content = Str::limit(strip_tags($item->content), 150);
+                return $item;
+            });
+            return view('admin.beritaacara.index', compact('beritaacaras'));
+        } else {
+            // Halaman index untuk publik
+            $beritaacaras = Beritaacara::latest()->get()->map(function ($item) {
+                $item->short_content = Str::limit(strip_tags($item->content), 150);
+                return $item;
+            });
+            return view('beritaacara', compact('beritaacaras'));
+        }
     }
-}
 
 
     public function show($id)
