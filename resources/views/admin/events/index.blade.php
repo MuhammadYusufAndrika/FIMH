@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Daftar Event</h2>
+    <h2>Manage Event</h2>
     <a href="{{ route('admin.events.create') }}" class="btn btn-primary mb-3">Tambah Event</a>
     <table class="table table-bordered">
         <thead>

@@ -21,7 +21,7 @@
                 <td>{!! $visimisi->visi !!}</td>
                 <td>{!! $visimisi->misi !!}</td>
                 <td>
-                    <a href="{{ route('admin.visimisi.edit', $visimisi) }}" class="btn btn-warning mb-2">Edit</a>
+                    <a href="{{ route('admin.visimisi.edit', $visimisi) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ route('admin.visimisi.destroy', $visimisi) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')

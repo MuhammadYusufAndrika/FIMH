@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Daftar Divisi</h2>
+    <h2>Manage Divisi</h2>
     <a href="{{ route('admin.kepengurusan.create') }}" class="btn btn-primary mb-3">Tambah Event</a>
     <table class="table table-bordered">
         <thead>
@@ -21,7 +21,7 @@
                     <td>{!! $kepengurusan->content!!}</td>
                     <td><img src="{{ asset('storage/' . $kepengurusan->image) }}" alt="Event Image" width="100"></td>
                     <td>
-                        <a href="{{ route('admin.kepengurusan.edit', $kepengurusan->id) }}" class="btn btn-warning mb-2">Edit</a>
+                        <a href="{{ route('admin.kepengurusan.edit', $kepengurusan->id) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('admin.kepengurusan.destroy', $kepengurusan->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')

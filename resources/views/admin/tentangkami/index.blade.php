@@ -3,11 +3,11 @@
 
 @section('content')
 <div class="container">
-    <h1>Manage Descriptions</h1>
+    <h1>Manage Tentang Kami </h1>
     <a href="{{ route('admin.tentangkami.create') }}" class="btn btn-primary">Add New Description</a>
     <table class="table table-bordered mt-3">
         <thead>
-            <tr>
+            <tr >
                 <th>ID</th>
                 <th>Content</th>
                 <th>Action</th>
