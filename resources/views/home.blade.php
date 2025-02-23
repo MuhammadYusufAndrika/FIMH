@@ -62,28 +62,27 @@
     {{-- End Visi Misi --}}
 
     {{-- event --}}
-    <section class="event">
+    <section class="event py-5">
         <div class="container">
-            <div class="pilih-paket text-center my-5">
-                <h1 class="text-center mb-4" style="color:#500009">Kabar Informatika</h1>
+            <div class="text-center mb-5">
+                <h1 class="fw-bold" style="color:#500009">Kabar Informatika</h1>
             </div>
-            <div class="row">
+            <div class="row g-4">
                 @foreach($events as $event)
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="{{ asset('storage/' . $event->image) }}" class="card-img-top" alt="{{ $event->title }}">
-                            <div class="card-body">
+                    <div class="col-md-4">
+                        <div class="card shadow-sm h-100">
+                            <img src="{{ asset('storage/' . $event->image) }}" class="card-img-top" alt="{{ $event->title }}" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
                                 <h5 class="card-title">{!! $event->title !!}</h5>
-                                <p class="card-text">{!! Str::limit($event->content, 300) !!}</p>
-                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-primary">Selengkapnya</a>
+                                <p class="card-text flex-grow-1">{!! Str::limit(strip_tags($event->content), 300) !!}</p>
+                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-primary w-100 mt-auto">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-    </section>
-    
+    </section>    
     {{-- end event --}}
     
     {{-- Aspirasi --}}

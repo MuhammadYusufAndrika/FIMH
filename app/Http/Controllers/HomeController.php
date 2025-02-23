@@ -19,7 +19,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $tentangkami = tentangKami::first();
+        $tentangkami = TentangKami::first();
         $visimisi = VisiMisi::first();
         $events = Events::latest()->take(6)->get(); // Maksimal 6 berita terbaru
         // Pisahkan visi dan misi

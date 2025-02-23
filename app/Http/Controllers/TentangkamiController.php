@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use App\Models\Description;
-use App\Models\tentangkami;
+use App\Models\Tentangkami;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

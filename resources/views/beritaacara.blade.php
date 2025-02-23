@@ -39,8 +39,8 @@
                         </div>
                         <img src="{{ asset('storage/' . $berita->image) }}" class="img-fluid rounded mb-3" alt="{{ $berita->title }}">
                         <div class="content">
-                            <p class="">{!! $berita->content !!}</p>
-                            <p>{{ Str::limit($berita->konten, 300) }}</p>
+                            {{-- <p class="">{!! $berita->content !!}</p> --}}
+                            <p>{!!Str::limit($berita->content, 500)!!}</p>
                         </div>
                     </div>
                 </div>

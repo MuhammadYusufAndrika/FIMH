@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Beritaacara;
+use App\Models\beritaacara;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\App;
@@ -16,14 +16,14 @@ class BeritaacaraController extends Controller
         // Cek apakah request berasal dari admin URL
         if (request()->is('admin/*')) {
             // Halaman index untuk admin
-            $beritaacaras = Beritaacara::latest()->get()->map(function ($item) {
+            $beritaacaras = beritaacara::latest()->get()->map(function ($item) {
                 $item->short_content = Str::limit(strip_tags($item->content), 150);
                 return $item;
             });
             return view('admin.beritaacara.index', compact('beritaacaras'));
         } else {
             // Halaman index untuk publik
-            $beritaacaras = Beritaacara::latest()->get()->map(function ($item) {
+            $beritaacaras = beritaacara::latest()->get()->map(function ($item) {
                 $item->short_content = Str::limit(strip_tags($item->content), 150);
                 return $item;
             });
@@ -34,7 +34,7 @@ class BeritaacaraController extends Controller
 
     public function show($id)
     {
-        $beritaacara = Beritaacara::findOrFail($id);
+        $beritaacara = beritaacara::findOrFail($id);
         return view('detailberitaacara', compact('beritaacara'));
     }
 
@@ -55,20 +55,20 @@ class BeritaacaraController extends Controller
             $validated['image'] = $request->file('image')->store('beritaacara', 'public');
         }
 
-        Beritaacara::create($validated);
+        beritaacara::create($validated);
 
         return redirect()->route('admin.beritaacara.index')->with('success', 'Berita Acara berhasil ditambahkan!');
     }
 
     public function edit($id)
     {
-        $beritaacara = Beritaacara::findOrFail($id);
+        $beritaacara = beritaacara::findOrFail($id);
         return view('admin.beritaacara.edit', compact('beritaacara'));
     }
 
     public function update(Request $request, $id)
     {
-        $beritaacara = Beritaacara::findOrFail($id);
+        $beritaacara = beritaacara::findOrFail($id);
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -90,7 +90,7 @@ class BeritaacaraController extends Controller
 
     public function destroy($id)
     {
-        $beritaacara = Beritaacara::findOrFail($id);
+        $beritaacara = beritaacara::findOrFail($id);
 
         if ($beritaacara->image && Storage::exists('public/' . $beritaacara->image)) {
             Storage::delete('public/' . $beritaacara->image);
