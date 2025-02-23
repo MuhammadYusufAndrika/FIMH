@@ -8,10 +8,11 @@
         @method('PUT')
 
         <label>Title:</label>
-        <input type="text" name="title" class="form-control summernote" value="{{ $event->title }}" required>
+        <textarea class="form-contro summernote" id="title" name="title" rows="5" required>{!! $event->title !!}</textarea>
+        
 
         <label>Content:</label>
-        <textarea class="form-controlsummernote" name="content">{{ old('content', $event->content ?? '') }}</textarea>
+        <textarea class="form-control summernote" name="content" required>{{ old('content', $event->content ?? '') }}</textarea>
 
         
         <label>Gambar:</label>
